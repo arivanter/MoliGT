@@ -3,6 +3,8 @@ extends Node2D
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
+var current_race_ID
+var racer_name = 'Hiram'
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

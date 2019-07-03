@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://Interaccion/Jugador/Player.gd" type="Script" id=1]
+[ext_resource path="res://Automovil/Automovil/Automovil.gd" type="Script" id=1]
 [ext_resource path="res://Automovil/Automovil/name_dynamicfont.tres" type="DynamicFont" id=2]
 [ext_resource path="res://Fabrica/FAutomovil/Car.png" type="Texture" id=3]
 [ext_resource path="res://Fabrica/FAutomovil/car_smoke_particle_material.tres" type="Material" id=4]
@@ -21,6 +21,7 @@ margin_bottom = 35.0
 custom_fonts/font = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
+editor/display_folded = true
 texture = ExtResource( 3 )
 
 [node name="Particles2D" type="Particles2D" parent="Sprite"]

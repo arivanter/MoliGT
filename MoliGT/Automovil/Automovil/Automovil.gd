@@ -1,6 +1,7 @@
 extends KinematicBody2D
 
 
+var is_player = false
 
 var can_move
 var engine
@@ -12,7 +13,7 @@ var acceleration = base_accel
 var reving = false
 var moving = false
 var steering_const = .1
-onready var rot = $Sprite.rotation
+var rot = 0
 onready var smoke = $Sprite/Particles2D
 
 

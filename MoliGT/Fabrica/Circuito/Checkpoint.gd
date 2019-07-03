@@ -7,4 +7,6 @@ signal passed(id)
 
 
 func _on_Checkpoint_body_entered(body):
-	emit_signal("passed",id)
+	if body is KinematicBody2D:
+		if body.is_player:
+			emit_signal("passed",id)

@@ -14,8 +14,7 @@ extents = Vector2( 161.156, 30.7377 )
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 9.79541, 7.20937 )
 
-[node name="TileMap" type="TileMap"]
-position = Vector2( -138.675, 63.3082 )
+[node name="Circuito1" type="TileMap"]
 tile_set = ExtResource( 1 )
 cell_size = Vector2( 32, 32 )
 format = 1
@@ -34,6 +33,7 @@ __meta__ = {
 shape = SubResource( 1 )
 
 [node name="Checkpoint0" type="Area2D" parent="."]
+editor/display_folded = true
 position = Vector2( 3506.7, 24.5611 )
 script = ExtResource( 3 )
 __meta__ = {

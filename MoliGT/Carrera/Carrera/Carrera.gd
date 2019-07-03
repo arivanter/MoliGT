@@ -1,17 +1,45 @@
-extends Node2D
+extends Node
+
+# Declare member variables here. Examples:
+# var a = 2
+# var b = "text"
 
 var lap
 var laps = 3
 var pos = [] # arreglo de vectores
-var cars = []
 var oponents
 var grid = []
 var counter
 var t = null
 signal finished
 
+var circuito
+const max_corredores = 8
+var corredores = []
+var player
 
+
+# Called when the node enters the scene tree for the first time.
 func _ready():
+	
+	randomize()
+	record.current_race_ID = int(rand_range(0,8))
+	print(record.current_race_ID)
+	
+	
+	circuito = fabrica.make_circuito()
+	add_child(circuito, true)
+	for i in max_corredores:
+		var car = fabrica.make_automovil()
+		car.position = get_node("Circuito1/Grid_"+str(i+1)).position
+		if i == record.current_race_ID:
+			car.set_script(load("res://Interaccion/Jugador/Player.gd"))
+			car.name = 'Player'
+		corredores.append(car)
+	for i in corredores:
+		add_child(i, true)
+	
+	
 	lap = 0
 	counter = 4
 	t = Timer.new()
@@ -21,13 +49,9 @@ func _ready():
 	add_child(t)
 	t.start()
 	
-	for i in range(8):
-		var gridPosStr = "World/Track/Grid_" + str(i+1)
-		grid.append(get_node(gridPosStr).position)
 		
 
-
-
+# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	
 	#llamar a Track/pos
@@ -62,6 +86,7 @@ func _on_Track_lap():
 	lap += 1
 	
 	if lap > laps:
+		lap = laps
 		finish()
 		emit_signal("finished")
 

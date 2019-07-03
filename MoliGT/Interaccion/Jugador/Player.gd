@@ -1,7 +1,13 @@
 extends "res://Automovil/Automovil/Automovil.gd"
 
 var ID
-var Name
+var Name = record.racer_name
+
+func _ready():
+	$Name.text = Name
+	is_player = true
+	add_child(load('res://Interaccion/HUD/Camera.tscn').instance())
+	add_child(load('res://Interaccion/HUD/HUD.tscn').instance())
 
 func _physics_process(delta):
 	if Input.is_action_pressed("Accelerate"):
