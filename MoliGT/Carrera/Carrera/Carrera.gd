@@ -23,8 +23,8 @@ var player
 func _ready():
 	
 	randomize()
-	record.current_race_ID = int(rand_range(0,8))
-	print(record.current_race_ID)
+	record.data.current_race_ID = int(rand_range(0,8))
+	print(record.data.current_race_ID)
 	
 	
 	circuito = fabrica.make_circuito()
@@ -32,7 +32,9 @@ func _ready():
 	for i in max_corredores:
 		var car = fabrica.make_automovil()
 		car.position = get_node("Circuito1/Grid_"+str(i+1)).position
-		if i == record.current_race_ID:
+		car.get_node('Name').text = str(i)
+		if i == record.data.current_race_ID:
+			car.get_node('Name').text = record.data.racer_name
 			car.set_script(load("res://Interaccion/Jugador/Player.gd"))
 			car.name = 'Player'
 		corredores.append(car)
@@ -53,7 +55,10 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	
+	if $Player.reving:
+		$Player/Camera.zoomout()
+	else:
+		$Player/Camera.zoomin()
 	#llamar a Track/pos
 	
 	$Player/HUD/Laps.text = str(lap) + '/' + str(laps)

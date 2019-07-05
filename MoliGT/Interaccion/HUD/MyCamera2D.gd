@@ -69,3 +69,17 @@ func shake(duration, frequency, amplitude):
     set_offset(get_offset() - _last_offset)
     _last_offset = Vector2(0, 0)
     set_process(true)
+	
+
+
+func zoomin():
+	if zoom > Vector2(0.2,0.2):
+		zoom.x -= 0.01
+		zoom.y -= 0.01
+	
+	
+	
+func zoomout():
+	if zoom < Vector2(.45,45):
+		zoom.x += 0.001
+		zoom.y += 0.001

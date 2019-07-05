@@ -1,12 +1,12 @@
 extends "res://Automovil/Automovil/Automovil.gd"
 
-var ID
-var Name = record.racer_name
+var cam = load('res://Interaccion/HUD/Camera.tscn').instance()
+
 
 func _ready():
-	$Name.text = Name
+	$Name.text = record.data.racer_name
 	is_player = true
-	add_child(load('res://Interaccion/HUD/Camera.tscn').instance())
+	add_child(cam)
 	add_child(load('res://Interaccion/HUD/HUD.tscn').instance())
 
 func _physics_process(delta):
@@ -32,3 +32,8 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("Engine"):
 		switch_engine()
 		
+
+
+#func _process(delta):
+#	print(str(position.x) +',' + str(position.y)+','+str(rot))
+	

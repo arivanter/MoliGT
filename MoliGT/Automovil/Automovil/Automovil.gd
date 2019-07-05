@@ -2,6 +2,7 @@ extends KinematicBody2D
 
 
 var is_player = false
+var ID
 
 var can_move
 var engine
