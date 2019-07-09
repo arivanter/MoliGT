@@ -27,5 +27,5 @@ func _on_Join_pressed():
 	pass # Replace with function body.
 	
 func _input(event):
-	if event.is_action_pressed("server"):
+	if event.is_action_pressed("Engine"):
 		get_tree().change_scene('res://Servicios/Servidor/Server.tscn')

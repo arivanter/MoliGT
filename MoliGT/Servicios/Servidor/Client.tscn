@@ -1,0 +1,49 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Servicios/Servidor/Client.gd" type="Script" id=1]
+[ext_resource path="res://Interaccion/Menu/MenuMedium.tres" type="DynamicFont" id=2]
+[ext_resource path="res://Interaccion/Menu/MenuSmall.tres" type="DynamicFont" id=3]
+
+
+[node name="Client" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="Button" type="Button" parent="."]
+margin_left = 69.0984
+margin_top = 347.724
+margin_right = 599.098
+margin_bottom = 435.724
+custom_fonts/font = ExtResource( 2 )
+text = "Conectar"
+
+[node name="Button2" type="Button" parent="."]
+margin_left = 69.0984
+margin_top = 478.724
+margin_right = 599.098
+margin_bottom = 566.724
+custom_fonts/font = ExtResource( 2 )
+text = "Desconectar"
+
+[node name="LineEdit" type="LineEdit" parent="."]
+margin_left = 270.27
+margin_top = 146.389
+margin_right = 537.27
+margin_bottom = 191.389
+custom_fonts/font = ExtResource( 3 )
+expand_to_text_length = true
+
+[node name="Label" type="Label" parent="LineEdit"]
+margin_left = -165.0
+margin_top = 4.0
+margin_right = -25.0
+margin_bottom = 39.0
+custom_fonts/font = ExtResource( 3 )
+text = "Ingresar IP:"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+margin_left = 686.47
+margin_top = 75.5513
+margin_right = 1201.47
+margin_bottom = 643.551
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_Button2_pressed"]
