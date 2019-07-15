@@ -12,7 +12,9 @@ var data = {
 		},
 	},
 }
-
+var current_car
+var current_tires
+var current_track
 
 
 func save():

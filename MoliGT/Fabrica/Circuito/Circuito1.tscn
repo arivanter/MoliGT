@@ -22,6 +22,7 @@ tile_data = PoolIntArray( -2424864, 3, 0, -2424863, 3, 0, -2424862, 3, 0, -24248
 script = ExtResource( 2 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
+editor/display_folded = true
 position = Vector2( 2178.31, 509.708 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]

@@ -17,7 +17,6 @@ var circuito
 const max_corredores = 8
 var corredores = []
 var player
-var circ_num = 1
 
 
 # Called when the node enters the scene tree for the first time.
@@ -26,14 +25,16 @@ func _ready():
 	randomize()
 	record.data.current_race_ID = int(rand_range(0,8))
 	print(record.data.current_race_ID)
-	circuito = fabrica.make_circuito(circ_num)
+	circuito = fabrica.make_circuito(record.current_track)
 	circuito.connect('lap',self,"_on_Track_lap")
 	add_child(circuito, true)
 	for i in max_corredores:
-		var car = fabrica.make_automovil()
-		car.position = get_node("Circuito"+str(circ_num+1)+"/Grid_"+str(i+1)).position
+		var car = fabrica.make_automovil(randi()%8,randi()%2)
+		car.position = get_node("Circuito"+str(record.current_track+1)+"/Grid_"+str(i+1)).position
 		car.get_node('Name').text = str(i)
 		if i == record.data.current_race_ID:
+			car = fabrica.make_automovil(record.current_car,record.current_tires)
+			car.position = get_node("Circuito"+str(record.current_track+1)+"/Grid_"+str(i+1)).position
 			car.get_node('Name').text = record.data.racer_name
 			car.set_script(load("res://Interaccion/Jugador/Player.gd"))
 			car.name = 'Player'

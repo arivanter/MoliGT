@@ -3,13 +3,10 @@
 [ext_resource path="res://Interaccion/Menu/MainMenu.gd" type="Script" id=1]
 [ext_resource path="res://Interaccion/Menu/Tween.gd" type="Script" id=2]
 [ext_resource path="res://Interaccion/Menu/Anim.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Interaccion/Menu/MenuLarge.tres" type="DynamicFont" id=4]
-[ext_resource path="res://Interaccion/Menu/Menu_Font.ttf" type="DynamicFontData" id=5]
-[ext_resource path="res://Interaccion/Menu/MenuMedium.tres" type="DynamicFont" id=6]
-
-[sub_resource type="DynamicFont" id=1]
-size = 40
-font_data = ExtResource( 5 )
+[ext_resource path="res://Interaccion/Menu/Main.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Interaccion/Menu/SelecCoche.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Interaccion/Menu/SelecLlanta.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Interaccion/Menu/SelecPista.tscn" type="PackedScene" id=7]
 
 [node name="Base" type="Control"]
 script = ExtResource( 1 )
@@ -21,54 +18,18 @@ script = ExtResource( 2 )
 position = Vector2( 438.511, 471.709 )
 scale = Vector2( 2.5, 2.5 )
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+[node name="Main" parent="." instance=ExtResource( 4 )]
 visible = false
-margin_right = 1289.0
-margin_bottom = 728.0
-color = Color( 0, 0, 0, 1 )
 
-[node name="Loading" type="Label" parent="CanvasLayer/ColorRect"]
-margin_left = 347.0
-margin_top = 279.0
-margin_right = 911.0
-margin_bottom = 416.0
-custom_fonts/font = ExtResource( 4 )
-text = "Cargando..."
+[node name="SelCoche" parent="." instance=ExtResource( 5 )]
+visible = false
+z_index = 1
 
-[node name="Title" type="Label" parent="CanvasLayer"]
-margin_left = 163.0
-margin_top = 292.0
-margin_right = 511.0
-margin_bottom = 429.0
-custom_fonts/font = ExtResource( 4 )
-text = "MoliGT"
+[node name="SelLlantas" parent="." instance=ExtResource( 6 )]
+visible = false
+z_index = 1
 
-[node name="Create" type="Button" parent="CanvasLayer"]
-margin_left = 754.0
-margin_top = 248.0
-margin_right = 1173.0
-margin_bottom = 309.0
-custom_fonts/font = SubResource( 1 )
-text = "Crear Partida"
-
-[node name="Join" type="Button" parent="CanvasLayer"]
-margin_left = 754.0
-margin_top = 335.0
-margin_right = 1171.0
-margin_bottom = 396.0
-custom_fonts/font = SubResource( 1 )
-text = "Unirse a una Partida"
-
-[node name="Record" type="Button" parent="CanvasLayer"]
-margin_left = 755.0
-margin_top = 428.0
-margin_right = 1171.0
-margin_bottom = 489.0
-custom_fonts/font = ExtResource( 6 )
-text = "Records"
+[node name="SelPista" parent="." instance=ExtResource( 7 )]
+visible = false
+z_index = 1
 [connection signal="tween_completed" from="Tween" to="Tween" method="_on_Tween_tween_completed"]
-[connection signal="pressed" from="CanvasLayer/Create" to="." method="_on_Create_pressed"]
-[connection signal="pressed" from="CanvasLayer/Join" to="." method="_on_Join_pressed"]
-[connection signal="pressed" from="CanvasLayer/Record" to="." method="_on_Record_pressed"]

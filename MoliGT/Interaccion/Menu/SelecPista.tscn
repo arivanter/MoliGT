@@ -1,0 +1,42 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Interaccion/Menu/MenuMedium.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Interaccion/Menu/Captura de pantalla 2019-07-10 a la(s) 10.45.19.png" type="Texture" id=2]
+[ext_resource path="res://Interaccion/Menu/Captura de pantalla 2019-07-10 a la(s) 10.47.39.png" type="Texture" id=3]
+[ext_resource path="res://Interaccion/Menu/MenuLarge.tres" type="DynamicFont" id=4]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Bp0" type="Button" parent="."]
+margin_left = 196.474
+margin_top = 592.135
+margin_right = 459.474
+margin_bottom = 652.135
+custom_fonts/font = ExtResource( 1 )
+text = "Pista 1"
+
+[node name="Bp1" type="Button" parent="."]
+margin_left = 819.311
+margin_top = 591.4
+margin_right = 1084.31
+margin_bottom = 648.4
+custom_fonts/font = ExtResource( 1 )
+text = "Pista 2"
+
+[node name="Pista1" type="Sprite" parent="."]
+position = Vector2( 333.887, 359.935 )
+scale = Vector2( 0.50331, 0.524333 )
+texture = ExtResource( 2 )
+
+[node name="Pista2" type="Sprite" parent="."]
+position = Vector2( 953.117, 359.935 )
+scale = Vector2( 0.499994, 0.527811 )
+texture = ExtResource( 3 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = 262.847
+margin_top = 21.7839
+margin_right = 1060.85
+margin_bottom = 158.784
+custom_fonts/font = ExtResource( 4 )
+text = "Selecciona Pista"

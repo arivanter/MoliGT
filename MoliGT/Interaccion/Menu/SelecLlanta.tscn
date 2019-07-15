@@ -1,0 +1,104 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Interaccion/Menu/MenuLarge.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Fabrica/FAutomovil/tires/tires_2 clone.png" type="Texture" id=2]
+[ext_resource path="res://Fabrica/FAutomovil/tires/tires_gray clone.png" type="Texture" id=3]
+[ext_resource path="res://Interaccion/Menu/MenuMedium.tres" type="DynamicFont" id=4]
+
+[sub_resource type="Animation" id=1]
+resource_name = "Nueva animación"
+
+[sub_resource type="Animation" id=2]
+resource_name = "mover"
+length = 0.3
+loop = true
+step = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath("Llanta1:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.11, 0.21 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2 ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "Nueva animación"
+
+[sub_resource type="Animation" id=4]
+resource_name = "mover"
+length = 0.3
+loop = true
+step = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath("Llanta2:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.01, 0.11, 0.21 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2 ]
+}
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Label" type="Label" parent="."]
+margin_left = 194.875
+margin_top = 30.7698
+margin_right = 1112.88
+margin_bottom = 167.77
+custom_fonts/font = ExtResource( 1 )
+text = "Selecciona Llantas"
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Llanta1" type="Sprite" parent="Node2D"]
+position = Vector2( 410.02, 372.724 )
+scale = Vector2( 14.5606, 13.0617 )
+texture = ExtResource( 2 )
+vframes = 2
+hframes = 2
+frame = 2
+
+[node name="Llanta2" type="Sprite" parent="Node2D"]
+position = Vector2( 896.782, 378.753 )
+scale = Vector2( 14.5606, 13.0617 )
+texture = ExtResource( 3 )
+vframes = 2
+hframes = 2
+frame = 1
+
+[node name="AnimationL1" type="AnimationPlayer" parent="Node2D"]
+autoplay = "mover"
+"anims/Nueva animación" = SubResource( 1 )
+anims/mover = SubResource( 2 )
+
+[node name="AnimationL2" type="AnimationPlayer" parent="Node2D"]
+autoplay = "mover"
+"anims/Nueva animación" = SubResource( 3 )
+anims/mover = SubResource( 4 )
+
+[node name="Button0" type="Button" parent="."]
+margin_left = 245.135
+margin_top = 509.0
+margin_right = 566.135
+margin_bottom = 600.0
+rect_scale = Vector2( 1, 1.16979 )
+custom_fonts/font = ExtResource( 4 )
+text = "Estilo 1"
+
+[node name="Button1" type="Button" parent="."]
+margin_left = 728.473
+margin_top = 509.0
+margin_right = 1049.47
+margin_bottom = 600.0
+rect_scale = Vector2( 1, 1.16979 )
+custom_fonts/font = ExtResource( 4 )
+text = "Estilo2"

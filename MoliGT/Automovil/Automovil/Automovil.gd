@@ -27,7 +27,12 @@ func _ready():
 
 
 func _physics_process(delta):
+	if moving:
+		$AnimationPlayer.play("Rodaje")
+	else:
+		$AnimationPlayer.stop(true)
 	$Sprite.rotation = -rot
+	$Llantas.rotation = -rot
 	$CollisionShape2D.rotation = -rot
 
 

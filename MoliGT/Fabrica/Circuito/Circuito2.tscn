@@ -4,8 +4,9 @@
 [ext_resource path="res://Fabrica/Circuito/Circuito2.gd" type="Script" id=2]
 [ext_resource path="res://Fabrica/Circuito/Checkpoint.gd" type="Script" id=3]
 
-[sub_resource type="CircleShape2D" id=1]
-radius = 410.689
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 283.652
+height = 819.974
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 174.4, 11.8223 )
@@ -27,12 +28,10 @@ tile_data = PoolIntArray( -1114078, -1073741824, 0, -393196, 22, 0, -65536, -107
 script = ExtResource( 2 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
-editor/display_folded = true
-position = Vector2( 1595.34, 2202.74 )
-rotation = 3.68342
+position = Vector2( 1994.38, 2103.8 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2( 91.6123, -3.89441 )
+position = Vector2( -336.316, 58.7612 )
 rotation = 4.46109
 shape = SubResource( 1 )
 one_way_collision_margin = 1.9
@@ -98,7 +97,6 @@ script = ExtResource( 3 )
 shape = SubResource( 4 )
 
 [node name="Checkpoint7" type="Area2D" parent="."]
-editor/display_folded = true
 position = Vector2( 2109.2, 2946.44 )
 rotation = -4.61116
 script = ExtResource( 3 )
@@ -139,6 +137,7 @@ position = Vector2( 492.609, 1711.47 )
 position = Vector2( 624.065, 1714.3 )
 
 [node name="Start" type="Area2D" parent="."]
+editor/display_folded = true
 position = Vector2( 557.346, 1488 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Start"]

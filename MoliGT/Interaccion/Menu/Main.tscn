@@ -1,0 +1,59 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Interaccion/Menu/MenuLarge.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Interaccion/Menu/Menu_Font.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Interaccion/Menu/MenuMedium.tres" type="DynamicFont" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 40
+font_data = ExtResource( 2 )
+
+[node name="Main" type="Node2D"]
+z_index = 1
+z_as_relative = false
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+margin_right = 1289.0
+margin_bottom = 728.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="Loading" type="Label" parent="ColorRect"]
+margin_left = 347.0
+margin_top = 279.0
+margin_right = 911.0
+margin_bottom = 416.0
+custom_fonts/font = ExtResource( 1 )
+text = "Cargando..."
+
+[node name="Title" type="Label" parent="."]
+margin_left = 163.0
+margin_top = 292.0
+margin_right = 511.0
+margin_bottom = 429.0
+custom_fonts/font = ExtResource( 1 )
+text = "MoliGT"
+
+[node name="Create" type="Button" parent="."]
+margin_left = 754.0
+margin_top = 248.0
+margin_right = 1173.0
+margin_bottom = 309.0
+custom_fonts/font = SubResource( 1 )
+text = "Crear Partida"
+
+[node name="Join" type="Button" parent="."]
+margin_left = 754.0
+margin_top = 335.0
+margin_right = 1171.0
+margin_bottom = 396.0
+custom_fonts/font = SubResource( 1 )
+text = "Unirse a una Partida"
+
+[node name="Record" type="Button" parent="."]
+margin_left = 755.0
+margin_top = 428.0
+margin_right = 1171.0
+margin_bottom = 489.0
+custom_fonts/font = ExtResource( 3 )
+text = "Records"

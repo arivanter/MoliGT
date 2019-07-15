@@ -1,0 +1,85 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Fabrica/FAutomovil/cars/car_blue.png" type="Texture" id=1]
+[ext_resource path="res://Fabrica/FAutomovil/cars/car_blue_s.png" type="Texture" id=2]
+[ext_resource path="res://Fabrica/FAutomovil/cars/car_gray_s.png" type="Texture" id=3]
+[ext_resource path="res://Fabrica/FAutomovil/cars/car_green_s.png" type="Texture" id=4]
+[ext_resource path="res://Fabrica/FAutomovil/cars/car_purple_s.png" type="Texture" id=5]
+[ext_resource path="res://Fabrica/FAutomovil/cars/car_red_s.png" type="Texture" id=6]
+[ext_resource path="res://Fabrica/FAutomovil/cars/car_yellow.png" type="Texture" id=7]
+[ext_resource path="res://Fabrica/FAutomovil/cars/car_yellow_s.png" type="Texture" id=8]
+[ext_resource path="res://Interaccion/Menu/MenuLarge.tres" type="DynamicFont" id=9]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Coche1" type="TextureButton" parent="."]
+margin_left = 130.936
+margin_top = 280.567
+margin_right = 266.936
+margin_bottom = 433.567
+texture_normal = ExtResource( 1 )
+expand = true
+
+[node name="Coche2" type="TextureButton" parent="."]
+margin_left = 972.757
+margin_top = 298.327
+margin_right = 1108.76
+margin_bottom = 451.327
+texture_normal = ExtResource( 2 )
+expand = true
+
+[node name="Coche3" type="TextureButton" parent="."]
+margin_left = 681.494
+margin_top = 518.551
+margin_right = 817.494
+margin_bottom = 671.551
+texture_normal = ExtResource( 3 )
+expand = true
+
+[node name="Coche4" type="TextureButton" parent="."]
+margin_left = 411.543
+margin_top = 287.671
+margin_right = 547.543
+margin_bottom = 440.671
+texture_normal = ExtResource( 4 )
+expand = true
+
+[node name="Coche5" type="TextureButton" parent="."]
+margin_left = 969.205
+margin_top = 522.103
+margin_right = 1105.21
+margin_bottom = 675.103
+texture_normal = ExtResource( 5 )
+expand = true
+
+[node name="Coche6" type="TextureButton" parent="."]
+margin_left = 404.439
+margin_top = 522.103
+margin_right = 540.439
+margin_bottom = 675.103
+texture_normal = ExtResource( 6 )
+expand = true
+
+[node name="Coche7" type="TextureButton" parent="."]
+margin_left = 677.942
+margin_top = 291.223
+margin_right = 813.942
+margin_bottom = 444.223
+texture_normal = ExtResource( 7 )
+expand = true
+
+[node name="Coche0" type="TextureButton" parent="."]
+margin_left = 123.832
+margin_top = 522.103
+margin_right = 259.832
+margin_bottom = 675.103
+texture_normal = ExtResource( 8 )
+expand = true
+
+[node name="Label" type="Label" parent="."]
+margin_left = 113.664
+margin_top = 60.3838
+margin_right = 1124.66
+margin_bottom = 197.384
+custom_fonts/font = ExtResource( 9 )
+text = "Selecciona un Coche"

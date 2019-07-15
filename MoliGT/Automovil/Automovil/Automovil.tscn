@@ -1,14 +1,33 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Automovil/Automovil/Automovil.gd" type="Script" id=1]
 [ext_resource path="res://Automovil/Automovil/name_dynamicfont.tres" type="DynamicFont" id=2]
 [ext_resource path="res://Fabrica/FAutomovil/Car.png" type="Texture" id=3]
 [ext_resource path="res://Fabrica/FAutomovil/car_smoke_particle_material.tres" type="Material" id=4]
 [ext_resource path="res://Fabrica/FAutomovil/smoke_particle.png" type="Texture" id=5]
+[ext_resource path="res://Fabrica/FAutomovil/tires/tires_gray.png" type="Texture" id=6]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 11.0705
 height = 10.2184
+
+[sub_resource type="Animation" id=2]
+resource_name = "Rodaje"
+length = 0.13
+loop = true
+step = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath("Llantas:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.05, 0.1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2 ]
+}
 
 [node name="Automovil" type="KinematicBody2D"]
 script = ExtResource( 1 )
@@ -38,3 +57,12 @@ texture = ExtResource( 5 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0.104671, 0 )
 shape = SubResource( 1 )
+
+[node name="Llantas" type="Sprite" parent="."]
+position = Vector2( 0, -0.305813 )
+texture = ExtResource( 6 )
+vframes = 2
+hframes = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Rodaje = SubResource( 2 )

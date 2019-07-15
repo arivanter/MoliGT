@@ -1,0 +1,41 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Fabrica/Circuito/power_boxes.png" type="Texture" id=1]
+
+[sub_resource type="Animation" id=1]
+resource_name = "LutBox"
+length = 1.6
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("PowerBox:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4, 0.8, 1.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 3, 2, 1 ]
+}
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 26.3331
+
+[node name="PowerBox1" type="Node2D"]
+
+[node name="PowerBox" type="Sprite" parent="."]
+scale = Vector2( 2.13344, 2.06109 )
+texture = ExtResource( 1 )
+vframes = 2
+hframes = 2
+frame = 3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "LutBox"
+anims/LutBox = SubResource( 1 )
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="Hitbox" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource( 2 )
