@@ -25,7 +25,6 @@ func _ready():
 	smoke.emitting = false
 
 
-
 func _physics_process(delta):
 	if moving:
 		$AnimationPlayer.play("Rodaje")
@@ -37,7 +36,7 @@ func _physics_process(delta):
 
 
 
-func accel ():
+puppetsync func accel ():
 	if engine:
 		if not reving:
 			smoke.process_material.initial_velocity = 50
@@ -54,7 +53,7 @@ func accel ():
 
 
 
-func reverse ():
+puppetsync func reverse ():
 	if engine:
 		if not reving:
 			smoke.process_material.initial_velocity = 50
@@ -72,7 +71,7 @@ func reverse ():
 
 
 
-func stop ():
+puppetsync func stop ():
 	if engine:
 		smoke.process_material.initial_velocity = 10
 		smoke.amount = 10
@@ -83,13 +82,13 @@ func stop ():
 
 
 
-func steer():
+puppetsync func steer(steering_const):
 	if moving:
 		rot -= steering_const
 
 
 
-func switch_engine():
+puppetsync func switch_engine():
 	if engine:
 		can_move = false
 		smoke.emitting = false
@@ -100,7 +99,9 @@ func switch_engine():
 		smoke.emitting = true
 		engine = true
 
-
+puppetsync func setpos(pos, r):
+	position = pos
+	rot = r
 
 func get_front():
 	return Vector2(cos(rot + PI/2.0), sin(rot - PI/2.0))

@@ -87,10 +87,6 @@ ui_pause={
 
 pointing/emulate_touch_from_mouse=true
 
-[physics]
-
-common/physics_fps=120
-
 [rendering]
 
 quality/driver/fallback_to_gles2=true

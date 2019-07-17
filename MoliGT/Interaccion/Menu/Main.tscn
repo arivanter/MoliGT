@@ -57,3 +57,19 @@ margin_right = 1171.0
 margin_bottom = 489.0
 custom_fonts/font = ExtResource( 3 )
 text = "Records"
+
+[node name="LineEdit" type="LineEdit" parent="."]
+margin_left = 759.47
+margin_top = 578.836
+margin_right = 1022.47
+margin_bottom = 637.836
+custom_fonts/font = ExtResource( 3 )
+placeholder_text = "Nomrbe"
+
+[node name="Label" type="Label" parent="."]
+margin_left = 299.995
+margin_top = 582.458
+margin_right = 718.995
+margin_bottom = 637.458
+custom_fonts/font = ExtResource( 3 )
+text = "Nombre del corredor"

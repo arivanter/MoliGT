@@ -17,7 +17,18 @@ var coches =   ['res://Fabrica/FAutomovil/cars/car_yellow_s.png',
 				]
 var llantas =  ['res://Fabrica/FAutomovil/tires/tires_2.png',
 				'res://Fabrica/FAutomovil/tires/tires_gray.png']
+				
+var faceCrash = ["res://Interaccion/HUD/Faces/AndresGolpe.png",
+			 	"res://Interaccion/HUD/Faces/HiramGolpe.png", 
+			 	"res://Interaccion/HUD/Faces/JisusGolpe.png", 
+			 	"res://Interaccion/HUD/Faces/KevinGolpe.png", 
+				"res://Interaccion/HUD/Faces/YoMeroGolpe.png"]
 
+var faceNormal = ["res://Interaccion/HUD/Faces/AndresNormal.png",
+			 	"res://Interaccion/HUD/Faces/HiramNormal.png", 
+			 	"res://Interaccion/HUD/Faces/JisusNormal.png", 
+			 	"res://Interaccion/HUD/Faces/KevinNormal.png", 
+				"res://Interaccion/HUD/Faces/YoMeroNormal.png"]
 
 # Called when the node enters the scene tree for the first time.
 

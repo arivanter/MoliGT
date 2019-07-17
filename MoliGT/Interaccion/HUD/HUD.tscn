@@ -1,17 +1,19 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Interaccion/HUD/HUD.gd" type="Script" id=1]
 [ext_resource path="res://Interaccion/HUD/OpenSans-Bold.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://Interaccion/HUD/HUD_font.tres" type="DynamicFont" id=3]
 [ext_resource path="res://Interaccion/Menu/MenuSmall.tres" type="DynamicFont" id=4]
 [ext_resource path="res://Interaccion/Menu/MenuMedium.tres" type="DynamicFont" id=5]
+[ext_resource path="res://Interaccion/HUD/Contains/container_face.png" type="Texture" id=6]
+[ext_resource path="res://Interaccion/HUD/Contains/container_power.png" type="Texture" id=7]
+[ext_resource path="res://Interaccion/HUD/Faces/YoMeroNormal.png" type="Texture" id=8]
 
 [sub_resource type="DynamicFont" id=1]
 size = 50
 font_data = ExtResource( 2 )
 
 [node name="HUD" type="CanvasLayer"]
-editor/display_folded = true
 script = ExtResource( 1 )
 
 [node name="Counter" type="Label" parent="."]
@@ -19,10 +21,10 @@ anchor_left = 0.5
 anchor_top = 0.3
 anchor_right = 0.5
 anchor_bottom = 0.3
-margin_left = -640.0
-margin_top = -216.0
-margin_right = 640.0
-margin_bottom = 314.0
+margin_left = -636.116
+margin_top = -215.353
+margin_right = 643.884
+margin_bottom = 314.647
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_constants/shadow_offset_x = 2
@@ -56,22 +58,6 @@ margin_right = 144.0
 margin_bottom = 73.0
 text = "Reset"
 
-[node name="Pos" type="Label" parent="."]
-margin_left = 1100.0
-margin_top = 105.0
-margin_right = 1228.0
-margin_bottom = 145.0
-custom_fonts/font = ExtResource( 3 )
-text = "Pos / Pos"
-
-[node name="PosLabel" type="Label" parent="."]
-margin_left = 1033.0
-margin_top = 105.0
-margin_right = 1083.0
-margin_bottom = 145.0
-custom_fonts/font = ExtResource( 3 )
-text = "Pos"
-
 [node name="ColorRect" type="ColorRect" parent="."]
 visible = false
 margin_left = 368.0
@@ -103,6 +89,21 @@ margin_right = 472.0
 margin_bottom = 100.0
 custom_fonts/font = ExtResource( 5 )
 text = "¿Salir de la partida?"
+
+[node name="faceBox" type="Sprite" parent="."]
+position = Vector2( 109.31, 105.311 )
+scale = Vector2( 2.16642, 2.20807 )
+texture = ExtResource( 6 )
+
+[node name="powerBox" type="Sprite" parent="."]
+position = Vector2( 106.644, 617.201 )
+scale = Vector2( 3.24952, 3.20786 )
+texture = ExtResource( 7 )
+
+[node name="face" type="Sprite" parent="."]
+position = Vector2( 109.767, 121.567 )
+scale = Vector2( 0.0661603, 0.0677247 )
+texture = ExtResource( 8 )
 [connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
 [connection signal="pressed" from="ColorRect/Button" to="." method="_on_Yes_pressed"]
 [connection signal="pressed" from="ColorRect/Button2" to="." method="_on_No_pressed"]

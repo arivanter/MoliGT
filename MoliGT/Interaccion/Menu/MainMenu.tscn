@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Interaccion/Menu/MainMenu.gd" type="Script" id=1]
 [ext_resource path="res://Interaccion/Menu/Tween.gd" type="Script" id=2]
@@ -7,6 +7,8 @@
 [ext_resource path="res://Interaccion/Menu/SelecCoche.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Interaccion/Menu/SelecLlanta.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Interaccion/Menu/SelecPista.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Servicios/Servidor/Client.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Servicios/Servidor/Server.tscn" type="PackedScene" id=9]
 
 [node name="Base" type="Control"]
 script = ExtResource( 1 )
@@ -31,5 +33,12 @@ z_index = 1
 
 [node name="SelPista" parent="." instance=ExtResource( 7 )]
 visible = false
+z_index = 1
+
+[node name="Client" parent="." instance=ExtResource( 8 )]
+visible = false
+z_index = 1
+
+[node name="Server" parent="." instance=ExtResource( 9 )]
 z_index = 1
 [connection signal="tween_completed" from="Tween" to="Tween" method="_on_Tween_tween_completed"]

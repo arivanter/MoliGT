@@ -1,47 +1,60 @@
 extends Node
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
 var lap
 var laps = 3
-var pos = [] # arreglo de vectores
-var oponents
-var grid = []
 var counter
 var t = null
 signal finished
+var id
+remotesync var place = 1
 
+# Declare member variables here. Examples:
+# var a = 2
+# var b = "text"
 var circuito
-const max_corredores = 8
-var corredores = []
+var player_num
+var players = []
 var player
-
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	
-	randomize()
-	record.data.current_race_ID = int(rand_range(0,8))
-	print(record.data.current_race_ID)
 	circuito = fabrica.make_circuito(record.current_track)
 	circuito.connect('lap',self,"_on_Track_lap")
 	add_child(circuito, true)
-	for i in max_corredores:
-		var car = fabrica.make_automovil(randi()%8,randi()%2)
-		car.position = get_node("Circuito"+str(record.current_track+1)+"/Grid_"+str(i+1)).position
-		car.get_node('Name').text = str(i)
-		if i == record.data.current_race_ID:
-			car = fabrica.make_automovil(record.current_car,record.current_tires)
-			car.position = get_node("Circuito"+str(record.current_track+1)+"/Grid_"+str(i+1)).position
-			car.get_node('Name').text = record.data.racer_name
-			car.set_script(load("res://Interaccion/Jugador/Player.gd"))
-			car.name = 'Player'
-		corredores.append(car)
-	for i in corredores:
-		add_child(i, true)
 	
+	id = get_tree().get_network_unique_id()
+	
+	player = fabrica.make_automovil(record.current_car, record.current_tires)
+	player.get_node('Name').text = record.data.racer_name
+	player.set_name(str(get_tree().get_network_unique_id()))
+	player.set_script(load("res://Interaccion/Jugador/Player.gd"))
+
+	player.set_network_master(get_tree().get_network_unique_id())
+	
+	record.players.append(get_tree().get_network_unique_id())
+
+	var car_count = 0
+	var adding
+	for i in record.players:
+		adding = fabrica.make_automovil(randi()%8, randi()%2)
+		adding.get_node('Name').text = str(i)
+		adding.set_name(str(i))
+		adding.set_network_master(i)
+		
+		if i == get_tree().get_network_unique_id():
+			adding = player
+		
+		adding.position = get_node("Circuito"+str(record.current_track+1)+"/Grid_"+str(car_count+1)).position
+		add_child(adding)
+		car_count += 1
+
+	while car_count < 8:
+		adding = fabrica.make_automovil(randi()%8, randi()%2)
+		adding.get_node('Name').text = str(car_count)
+		adding.set_name(str(car_count))
+		adding.position = get_node("Circuito"+str(record.current_track+1)+"/Grid_"+str(car_count+1)).position
+		add_child(adding)
+		car_count += 1
 	
 	lap = 1
 	counter = 4
@@ -51,40 +64,35 @@ func _ready():
 	t.connect("timeout", self, "countdown")
 	add_child(t)
 	t.start()
-	
-		
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if $Player.reving:
-		$Player/Camera.zoomout()
+	if get_node(str(id)).reving:
+		get_node(str(id)+'/Camera').zoomout()
 	else:
-		$Player/Camera.zoomin()
+		get_node(str(id)+'/Camera').zoomin()
 	#llamar a Track/pos
 	
-	$Player/HUD/Laps.text = str(lap) + '/' + str(laps)
-	#$Player/HUD/Pos.text = str(cars.find()) + '/' + str(8)
-	# Temp
-	$Player/HUD/Pos.text = str(1) + '/' + str(1)
-	
+	get_node(str(id)+'/HUD/Laps').text = str(lap) + '/' + str(laps)
 
 
 
 func countdown():
-	if $Player/HUD/Counter.text == "Go!":
-		$Player/HUD/Counter.hide()
+	if get_node(str(id)+'/HUD/Counter').text == "Go!":
+		get_node(str(id)+'/HUD/Counter').hide()
 		t.queue_free()
 		return
 	
 	counter -= 1
-	$Player/HUD/Counter.text = str(counter)
+	get_node(str(id)+'/HUD/Counter').text = str(counter)
 	
 	if counter > 0:
 		t.start()
 	else:
-		$Player/HUD/Counter.text = "Go!"
+		get_node(str(id)+'/HUD/Counter').text = "Go!"
 		t.start()
-		$Player.switch_engine()
+		get_node(str(id)).start()
 
 
 
@@ -99,8 +107,10 @@ func _on_Track_lap():
 
 
 func finish():
-	$Player/HUD/Counter.text = 'Finish!'
-	$Player/HUD/Counter.show()
+	get_node(str(id)+'/HUD/Counter').text = 'Finish!' + '\nPlace: ' + str(place)
+	get_node(str(id)+'/HUD/Counter').show()
+	place += 1
+	rset('place', place)
+	if get_node(str(id)).engine:
+		get_node(str(id)).start()
 
-	if $Player.engine:
-		$Player.switch_engine()
